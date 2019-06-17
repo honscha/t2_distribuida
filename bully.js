@@ -118,6 +118,7 @@ function serverListen(port, address) {
       case "newBully":
         let id = retorno.content;
         bully = nodes.filter(node => node.id == id)[0];
+        console.log("Fim de eleição");
         console.log("NEW BULLY: " + id);
         break;
       case "AITBN":
@@ -153,6 +154,7 @@ function serverListen(port, address) {
           }
           if (imLocked) {
             imLocked = false;
+            console.log("unlock");
             buffer = buildMessage("unlock", myNode.id);
             server.send(
               buffer,
